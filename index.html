@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>TPG Dragway | Reaction Time Trainer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/asset/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- <div class="flag"></div> -->
+  <div class="wrap">
+    <div class="logo">
+      <img src="/asset/TPG Merah.png" alt="" width="150px" height="auto">
+      <div class="title"><h1>Dragway</h1></div>
+    </div>
+    <p class="lede">Tempat untuk para joki latihan START biar RT bagus dan tidak JS!</p>
+
+    <div class="bar">
+      <div class="driver-fields">
+        <label class="profile-field" for="car">
+          <!-- <span>Jenis Mobil</span> -->
+          <input id="car" minlength="3" maxlength="20" required placeholder="Model Mobil" autocomplete="off">
+        </label>
+        <label class="profile-field" for="name">
+          <!-- <span>Nama Joki</span> -->
+          <input id="name" minlength="3" maxlength="20" required placeholder="Nama Joki" autocomplete="off">
+        </label>
+      </div>
+      <button class="masuk" id="load">Masuk</button>
+      <span id="save">Belum ada nama joki yang masuk!</span>
+    </div>
+    
+    <div class="stage">
+      <div class="ctl">
+        <span>
+          <b class="amber">Amber interval</b>
+          <span class="opts" id="opts"></span>
+        </span>
+        <button id="mute" aria-pressed="false">Sound on</button>
+      </div>
+      <p class="read idle" id="read" aria-live="polite">0.000s</p>
+      <p class="msg" id="msg">Masukin nama joki, lalu tekan tombol STAGE.</p>
+      <div class="tree" id="tree"></div>
+      <button class="pad" id="pad">Stage</button>
+    </div>
+    
+    <h2>Your numbers</h2>
+    <div class="stats">
+      <div class="stat">
+        <i id="pb">0</i>
+        <span class="pb">Personal best (s)</span>
+      </div>
+      <div class="stat">
+        <i id="avg">0</i>
+        <span class="avg">Average, last 10 (s)</span>
+      </div>
+      <div class="stat">
+        <i id="sd">0</i>
+        <span class="sd">Spread, last 10 (ms)</span>
+      </div>
+      <div class="stat">
+        <i id="cnt">0</i>
+        <span class="rl" id="rl">Runs, 0 red lights</span>
+      </div>
+    </div>
+    
+    <div class="bars" id="bars"></div>
+    
+    <div class="hist-wrap">
+      <div class="hist-filter">
+        <label for="history-interval">Amber interval</label>
+        <select id="history-interval">
+          <option value="all">All intervals</option>
+        </select>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Run</th>
+            <th>Jenis Mobil</th>
+            <th>Nama Joki</th>
+            <th>Tree</th>
+            <th>Reaction</th>
+            <th class="clear-cell"><button id="clear" disabled>Clear all runs</button></th>
+          </tr>
+        </thead>
+        <tbody id="hist">
+          <tr>
+            <td colspan="6" class="empty">No runs yet.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
